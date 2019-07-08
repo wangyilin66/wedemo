@@ -1,0 +1,236 @@
+.BoxWrap {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.BoxNav {
+	width: 75%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+
+	.NavWrap {
+		width: 294px;
+		height: 36px;
+		background: linear-gradient(0deg, rgba(9, 146, 185, 1), rgba(3, 37, 93, 1));
+		border: 1px solid rgba(0, 0, 0, 0.6);
+		border-radius: 4px;
+		display: flex;
+
+		.NavList {
+			position: relative;
+			padding: 0 15px;
+			font-size: 16px;
+			line-height: 36px;
+			font-family: MicrosoftYaHei;
+			font-weight: 400;
+			color: rgba(0, 252, 255, 1);
+
+			.subCtrl {
+				margin-left: 10px;
+				font-size: 16px;
+				font-family: DFPYuanW7;
+				font-weight: 400;
+				color: rgba(255, 255, 255, 1);
+				opacity: 0.5;
+			}
+
+			.active {
+				font-size: 16px;
+				font-family: DFPYuanW7;
+				font-weight: 400;
+				color: rgba(0, 252, 255, 1);
+				opacity: 1;
+			}
+
+			.NavWire {
+				position: absolute;
+				right: 0;
+				top: 15px;
+				width: 1px;
+				height: 8px;
+				background: rgba(145, 143, 148, 1);
+				opacity: 0.99;
+			}
+
+			.NavWire:nth-child(3) {
+				opacity: 0;
+			}
+		}
+	}
+
+	.NavInput {
+		width: 374px;
+		height: 40px;
+		box-shadow: 0px 0px 6px 0px rgba(12, 69, 105, 0.8);
+		background: #184867 !important;
+		position: relative;
+
+		.InputName {
+			width: 374px !important;
+			height: 40px !important;
+			border: 0;
+
+			input {
+				background: #184867 !important;
+			}
+		}
+
+		.navLine {
+			position: absolute;
+			right: 40px;
+			top: 0;
+			width: 1px;
+			height: 38px;
+			background: rgba(34, 102, 146, 1);
+		}
+	}
+}
+
+.deployList {
+	width: 100%;
+	margin-top: 20px;
+	display: flex;
+	position: relative;
+
+	.deployLeft {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.deployRight {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+	.jiantou {
+		top: 50%;
+		width: 40px;
+		height: 80px;
+		margin: 0 88px;
+		margin-top: -20px;
+	}
+
+	.deployContent {
+		width: 75%;
+		margin: 0 auto;
+
+		.deployLists {
+			width: 100%;
+			display: flex;
+			flex-wrap: nowrap;
+
+			.deployLi {
+				width: 420px;
+				height: 750px;
+				margin-right: 70px;
+				background: url(../../../../../common/deploy-imgs/deploys-bg.png) no-repeat;
+
+				.caseNum {
+					width: 100%;
+					height: 18px;
+					font-size: 18px;
+					font-family: DFPYuanW7;
+					font-weight: 400;
+					color: rgba(255, 255, 255, 1);
+					text-align: center;
+				}
+
+				.caseDetail {
+					width: 100%;
+					padding: 0 28px;
+					box-sizing: border-box;
+
+					.detail {
+						width: 100%;
+						margin-top: 30px;
+						.userInfo span {
+							display: block;
+							font-size: 14px;
+							line-height: 30px;
+							font-family: DFPYuanW7;
+							font-weight: 400;
+							color: rgba(255, 255, 255, 1);
+						}
+
+						.caseTime {
+							font-size: 14px;
+							font-family: DFPYuanW7;
+							font-weight: 400;
+							color: rgba(255, 255, 255, 1);
+						}
+
+						.caseDescribe {
+							height: 34px;
+							font-size: 10px;
+							font-family: DFPYuanW7;
+							font-weight: 400;
+							color: rgba(255, 255, 255, 1);
+							overflow: hidden;
+							white-space: wrap;
+							text-overflow: ellipsis;
+						}
+					}
+					.fightPlayback {
+						width: 100%;
+						height: 44px;
+						display: flex;
+						// margin-top: 20px;
+						justify-content: space-around;
+						align-items: center;
+					
+						.a {
+							width: 120px;
+							height: 33px;
+							background: linear-gradient(0deg, rgba(0, 125, 202, 1), rgba(7, 32, 59, 1));
+							border: 1px solid rgba(0, 0, 0, 0.49);
+							display: block;
+							line-height: 33px;
+							text-align: center;
+							background: url(../../../../../common/img/xinxi_btn_bg01.png) no-repeat;
+							background-size: cover;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+// .ant-pagination {
+// 	text-align: center;
+// 	font-size: 18px !important;
+// 	font-family: DFPYuanW7;
+// 	font-weight: 400 !important;
+// 	background: 0;
+// 	border: 0;
+
+// 	li {
+// 		.ant-pagination-item-link {
+// 			background: 0;
+// 			border: 0;
+// 		}
+// 	}
+
+// 	.ant-pagination-item {
+// 		color: #fff !important;
+// 		background: 0;
+// 		border: 0;
+// 	}
+// }
+
+.block {
+	display: block;
+}
+
+.none {
+	display: none;
+}

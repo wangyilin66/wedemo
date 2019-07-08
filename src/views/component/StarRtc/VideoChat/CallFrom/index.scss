@@ -1,0 +1,108 @@
+.call-from-container {
+    padding: 16px;
+    position: absolute;
+    bottom: 0px;
+    right: 143px;
+    width: 280px;
+    height: 240px;
+    background: linear-gradient(#0176BF, #062746);
+    border: 1px solid #10A4B0;
+    z-index: 99;
+    text-align: center;
+
+    .user-info {
+        font-size: 14px;
+        font-weight: 400;
+        text-align: left;
+        color: white;
+        .avatar {
+            margin-right: 10px;
+            float: left;
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+        }
+        .name {
+
+        }
+    }
+
+    .call-image {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .call-footer {
+        // margin-top: 190px;
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .call-btn {
+            width: 60px;
+            height: 24px;
+            line-height: 24px;
+            font-size: 14px;
+            font-weight:400;
+            margin-right: 70px;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            &.active {
+                animation: jumpTwice 2s infinite ease-in-out;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.accept {
+                background: #0269AB;
+            }
+
+            &.refuse {
+                background: #DA4A4A;
+            }
+        }
+    }
+}
+
+$jump-height: -10px;
+
+@keyframes jumpTwice {
+    50% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    67.5% {
+        -webkit-transform: translateY($jump-height);
+        -ms-transform: translateY($jump-height);
+        transform: translateY($jump-height)
+    }
+
+    75% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    87.5% {
+        -webkit-transform: translateY($jump-height);
+        -ms-transform: translateY($jump-height);
+        transform: translateY($jump-height)
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0)
+    }
+}

@@ -1,0 +1,309 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+#loginCard{
+    margin: 100px auto;
+ }
+
+.main{
+    width: 100%;
+    height: 100%; 
+    position: relative;
+}
+.main_card{
+    width: 440px;
+    height:400px;
+    background-image: url(../../../common/login-img/login-img/login_bg.png);
+    position: absolute;
+    left:740px;
+    top:390px;
+}
+
+.main_title{
+    width:72px;
+    height:18px;
+    position: absolute;
+    left:924px;
+    top:390px;
+    font-size:18px;
+    color:#fff;
+}
+
+.main_name{
+    display: block;
+    position: absolute;
+    left:54px;
+    top:70px;
+    width: 328px;
+    height: 44px;
+    border:1px solid rgb(1, 1, 2);
+}
+
+ .main_card_name{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top:70px;
+    margin-left:52px;
+    padding: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum', "tnum";
+    position: relative;
+    display: inline-block;
+    width: 330px;
+    height: 46px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #fff;
+    background-repeat:no-repeat;
+    background-position:11px 10px;
+    border-radius: 4px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+ .main_card input.ant-input {
+     background-color: white;
+     border-radius: 0;
+     border-width: 0;
+ }
+.main_card input.ant-input:focus {
+    border-width: 0;
+}
+
+.has-error .ant-input-affix-wrapper:hover .ant-input:not(.ant-input-disabled) {
+    border-color: #fff!important;
+}
+/* 清除border样式 */
+.has-error .ant-input-affix-wrapper .ant-input, .has-error .ant-input-affix-wrapper .ant-input:hover {
+    border-color: #fff!important;
+
+}
+
+.has-error .ant-input:not([disabled]):hover {
+    border-color: #fff!important;
+}
+.ant-input-affix-wrapper:hover .ant-input:not(.ant-input-disabled) {
+    border-color: #fff!important;
+}
+.has-error .ant-input, .has-error .ant-input:hover {
+    border-color:#fff!important;
+}
+
+
+.has-error .ant-form-explain, .has-error .ant-form-split {
+    color: #f5222d;
+    width: 100px;
+    height: 18px;
+    z-index: 999;
+    margin-left: 160px;
+}
+
+input::-webkit-input-placeholder{
+    font-size:16px;
+    /*padding-left:50px;*/
+    color:rgba(0,0,0,0.25);
+}
+
+.main_card_name{
+    margin-top:70px;
+    padding-left: 50px;
+    font-size: 25px;
+}
+.main_card_password{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top:70px;
+    margin-left:52px;
+    padding: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum', "tnum";
+    position: relative;
+    display: inline-block;
+    width: 330px;
+    height: 46px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #fff;
+    background-repeat:no-repeat;
+    background-position:11px 10px;
+    border-radius: 4px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top:26px;
+    padding-left: 50px;
+    font-size: 25px;
+}
+
+/* .ant-input-affix-wrapper .ant-input:focus {
+    border: none!important;
+    border-bottom: 1px solid white !important;
+    box-shadow: none!important;
+} */
+
+.main_card_checkout{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top:70px;
+    margin-left:52px;
+    padding: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum', "tnum";
+    position: relative;
+    display: inline-block;
+    width: 330px;
+    height: 46px;
+    color: rgba(0, 0, 0, 0.25)!important;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #fff;
+    background-repeat:no-repeat;
+    background-position:11px 10px;
+    border-radius: 4px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    background-image:url(../../../common/login-img/login-img/icon_yanzhengma.png);
+    margin-top:26px;
+    margin-left:-8px;
+    width:200px;  
+    padding-left: 50px;
+    font-size: 25px;
+}
+
+.main_card_checkout::-webkit-input-placeholder{
+    /*position: absolute;*/
+    /*top:-5px;*/
+    /*text-align:center;*/
+    /*padding-top:-5px;*/
+}
+
+.main_card_block{
+    width: 330px;
+    height: 46px;
+    margin-left:60px;
+    color: rgba(0, 0, 0, 0.25)!important;
+}
+.form_box{
+    width: 125px;
+    height: 44px;
+    margin-right: 9px;
+    text-align: center;
+    margin-top: 27px;
+    display: block;
+    background: #fff;
+    float: right;
+    font-size: 27px;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: rgba(91,91,91,1);
+    border-radius: 2px;
+
+}
+
+.main_card_btn{
+    width: 330px!important;
+    height: 46px!important;
+    margin-top:27px;
+    margin:auto;
+    margin-top:54px;
+    border-radius:2px;
+    margin-left: 51px;
+    width: 332px;
+    height: 48px;
+}
+.main_card_btn button{
+    width: 330px!important;
+    height: 46px!important;
+    border:none;
+    background-image:url(../../../common/login-img/login-img/Login_btn.png.png);
+    background-repeat:no-repeat;
+    background-position:0px 0px;
+    outline: none; 
+    font-size:16px;
+    color:#fff; 
+} 
+.main_card_btn button:hover{
+    background-image:url(../../../common/login-img/login-img/Login_btn_pre.png.png);
+}
+
+ /*.ant-input {
+        width: 100%!important;
+        height: 65%!important;
+        padding-left: 13px;
+        font-size: 20px;
+        border: none;
+        position: absolute;
+        top: 0px;
+        background: #fff;
+        margin-left: -5px;
+    }
+    .ant-input:hover {
+        border-color: #fff;
+    }*/
+
+.anticon-lock{
+    display: inline-block;
+    width: 30px;
+    height: 80%;   
+    margin-left: -4px!important;
+}
+ .anticon-user{
+    display: inline-block;
+    width: 30px;
+    height: 80%;
+    margin-left: -4px!important;
+} 
+
+.form_box{
+    background:rgba(255,255,255,1);
+    width: 122px;
+    height: 46px;
+    text-align: center;
+    line-height: 46px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10px;
+    box-sizing: border-box;
+    }
+
+ .form_box span {
+        font-size:27px;
+        font-family:'PingFang-SC-Medium';
+        font-weight:500;
+        color:rgba(91,91,91,1);
+        padding-left: 5px;
+        display: block;
+        float: left;
+    }
+    .form_box .span0{
+    transform: rotate(20deg)
+    }
+    .form_box .span1{
+    transform: rotate(-15deg)
+    }
+    .form_box .span2{
+    transform: rotate(-20deg)
+    }
+    .form_box .span3{
+    transform: rotate(-15deg)
+    }
+
+    .main_top{
+        width: 100%;
+        height: 89px;
+        margin: 0 auto;
+        margin-top: 32px;
+        margin-top:0;
+        padding-top:0;
+    }
+
+
+
+   

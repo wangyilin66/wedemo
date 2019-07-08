@@ -1,0 +1,344 @@
+
+.main0{
+    width: 1920px;
+    height: 818px;
+    position: relative;
+    left: -60px;
+    top: -40px;
+    .main_contant0{
+        width: 100%;
+        height:754px;
+        position: absolute;
+        bottom:64px;
+        top: 75px;
+        .contant_left{
+            width: 380px;
+            height:100%;
+            margin-left:198px;
+            .contant_left_top{
+                width: 380px;
+                height: 320px; 
+                background-image:url(../../../../../common/exchange-img/gongzuojiaoliu_bg.png);
+                position: absolute;
+                .contant_left_title{
+                    font-size:18px;
+                    color:#fff;
+                    width: 72px;
+                    height: 18px; 
+                    position: absolute;
+                    left:153px;
+                    font-family:DFPYuanW7;
+                }
+                .contant_left_btm{
+                    width:100%;
+                    height:260px;
+                    position: absolute;
+                    top:60px;
+                    overflow-y:scroll; 
+                    li{
+                        width:260px;
+                        height:40px; 
+                        background-image:url(../../../../../common/exchange-img/xitongtongzhi_btn.png);
+                        background-repeat:no-repeat;
+                        background-position:0px 0px;
+                        list-style:none;
+                        color:#00FCFF;
+                        font-size:16px;
+                        text-align:center;
+                        line-height: 40px;
+                        // margin-top:20px;
+                        margin-bottom: 12px;
+                        margin-left:60px;
+                        font-family:DFPYuanW7;
+                    }
+                    .one{
+                        margin-top:0px!important;
+                    }
+                }
+            }
+            .contant_left_bottom{
+                width: 380px;
+                height: 320px;     
+                background-image:url(../../../../../common/exchange-img/gongzuojiaoliu_bg.png);
+                position: absolute;
+                top:434px;
+
+                .contant_right_title{
+                    font-size:18px;
+                    color:#fff;
+                    width: 72px;
+                    height: 18px; 
+                    position: absolute;
+                    left:153px;
+                    font-family:DFPYuanW7;
+                }
+                .contant_right_btm{
+                    width: 100%;
+                    height:260px;
+                 
+                    position: absolute;
+                    top:49px;
+                    overflow-y:scroll;
+                    li{
+                        width:332px;
+                      
+                        font-size:16px;
+                        color:#fff;
+                        font-family:DFPYuanW7;
+                        line-height: 36px;
+                        margin-left:22px;
+                        background-image:url(../../../../../common/exchange-img1/dian.png);
+                        background-repeat:no-repeat;
+                        background-position:0px 17px;
+                        padding-left: 20px;
+                    }
+                }
+               
+            }
+        }
+        .contant_right{
+            width: 1100px;
+            height:754px;         
+            position: absolute;
+            top:0px;
+            right:198px;           
+            .contant_right_liebiao{
+               width: 1100px;
+               height:734px;           
+           
+                dl{
+                    width:1100px;
+                    height:170px;
+               
+                    background:url(../../../../../common/exchange-img/message_bg.png);
+                    margin-bottom:10px;
+                    position: relative;
+                    dt{
+                        margin-left:50px;
+                        padding-top:31px;
+                        font-size:20px;
+                        color:#0080CA;
+                    }
+                    .contant_right_top{
+                        width:905px;
+                        height: 65px;
+                        margin-left:40px;
+                        padding-top:18px;
+                        font-size:16px;    
+                        line-height: 26px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        a{
+                            color:#fff;
+                            font-family: DFPYuanW7;
+                            text-decoration: none;
+                        }
+                    }
+                    .contant_right_bom{
+                        margin-bottom:32px;
+                        position: absolute;
+                        bottom: -16px;
+                        .contant_right_bom1{
+                            display: inline-block;
+                            width: 200px;
+                            height: 14px;
+                            font-size:14px;
+                            color:#fff;
+                            padding-bottom:12px;
+                            margin-left:40px;
+                            span{
+                                color:#F6AC5E;
+                            }
+                        }
+                    }
+                }
+            }   
+           
+          
+            .fenye{
+                width:1100px;
+                height:20px;         
+                position: relative;
+                bottom:0;
+            }
+        }
+        .contant_right1{
+            width: 1100px;
+            height:754px;
+            position: absolute;
+            top:0px;
+            right:198px;
+            background:url(../../../../../common/exchange-img1/xiangqing_bg.png);
+            .back{
+                width: 21px;
+                height: 20px;             
+                position: absolute;
+                top:52px;
+                left:50px;
+                background:url(../../../../../common/exchange-img/back.png);
+                background-repeat:no-repeat;
+                background-position:0px 0px;
+            }
+            .contant_right1_title{
+                width: 100%;
+                height:124px;
+                line-height:124px;
+                font-size:24px;
+                color:#52BCFF;
+                text-align:center;
+                vertical-align: center;
+            }
+            .contant_right1_xiaotitle{
+                width:1018px;
+                height:20px;
+                line-height:20px;
+               
+                margin-left:40px;
+                margin-bottom:20px;
+                color:#52BCFF;
+                font-size:16px;
+                    .contant_right1_xiaotitle_left{
+                        padding-right:30px;
+                }
+              
+            
+            }
+            .contant_right1_content{
+                width:1018px;   
+                height: 556px; 
+              
+                margin-left:40px;
+                text-indent:32px;
+                overflow-y: scroll;
+                position: relative;
+                p{
+                    color:#fff;
+                    font-size:16px;
+                    line-height:24px;
+                    font-family:DFPYuanW7;
+                }
+                .contant_right1_bottom{
+                    width: 100%;
+                    height: 352px;
+                  
+                    margin-top:39px;
+                    .contant_right1_content_title{
+                        width: 100%;
+                        height: 64px;
+                        line-height: 64px;
+                        font-size:24px;
+                        color:#fff;
+                    }
+                    .contant_right1_content_kuang{
+                        width:1019px;
+                        height:120px;
+                        background:url(../../../../../common/exchange-img1/pinglun_input.png);
+                        .contant_right1_content_kuang_left{
+                            width:900px;
+                            height:100%;  
+                            display: inline-block;
+                            float: left;
+                           
+                            .contant_right1_content_kuang_left1{
+                                width: 100%;
+                                height: 96%;
+                                border: none;
+                                float: left;
+                                color: #fff;
+                                font-size: 16px;
+                            }
+                        }
+                        .contant_right1_content_kuang_right{
+                            width:118px;
+                            height:120px;
+                            line-height:120px;
+                            padding-left:7px;
+                            display: inline-block;
+                            background:url(../../../../../common/exchange-img1/fasong_btn.png);
+                            float: right;
+                            color:#00FCFF;
+                            font-size:16px;
+                            cursor:pointer
+                        }
+                    }
+                    .contant_right1_bottom1{
+                        width: 100%;
+                        height:160px;
+                    
+                       .contant_right1_content_title1{
+                            height:84px;
+                            line-height:84px;
+                            font-family:DFPYuanW7;
+                            font-size:24px;
+                            color:#fff;
+                       }
+                       .contant_right1_content_bottom1{
+                             width: 100%;
+                             height:60px;
+                             div{
+                                .contant_right1_content_left1{
+                                    width:60px;
+                                    height:60px;
+                                  
+                                    display:inline-block;
+                                    float:left;
+                                   
+                                    .image{
+                                        display:inline-block;
+                                        width:50px;
+                                       height: 50px;
+                                       margin-left: -29px;
+                                       margin-top: 5px;
+                                      }
+                                 }
+                                 .contant_right1_content_right1{
+                                    height:60px;
+                                    margin-left:16px;
+                                    .contant_right1_content_right1_top{
+                                        height:30px;
+                                        line-height:30px;
+                                        font-family:DFPYuanW7;
+                                        .contant_right1_content_right1_top_name{
+                                            font-size:18px;
+                                            color:rgba(0,252,255,1);
+                                            font-family:DFPYuanW7;
+                                        }
+                                        .contant_right1_content_right1_top_time{
+                                            margin-left:20px;
+                                            font-size:10px;
+                                        }
+                                    }
+                                 }
+                             }
+                            
+                       }
+
+                    }                  
+                }
+              
+              
+            }
+            ::-webkit-scrollbar {
+                width: 12px!important;
+            }
+            ::-webkit-scrollbar-button{
+                width:12px;
+                height:10px;
+                background:url(../../../../../common/exchange-img1/shang_icon.png);
+              
+            }
+            ::-webkit-scrollbar-thumb {
+                width: 12px!important;
+                height: 260px;
+                border-radius:4px;
+                background:#00FCFF!important;
+            }   
+        }  
+    }
+    .main_bottom{
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        bottom: -72px;
+    }
+}

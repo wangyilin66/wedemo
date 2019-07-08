@@ -1,0 +1,136 @@
+.messageModul {
+  width: 320px !important;
+  height: 100% !important;
+  border-radius: 10px;
+}
+
+.messageModul .ant-modal-content {
+  width: 320px !important;
+  background: #1c5d8e;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.messageModul .ant-modal-content .ant-modal-close {
+  height: 36px !important;
+  width: 36px !important;
+}
+
+.messageModul .ant-modal-content .ant-modal-close .ant-modal-close-x {
+  height: 20px !important;
+  width: 20px !important;
+  line-height: 36px !important;
+  text-align: center;
+}
+
+.messageModul .ant-modal-content .ant-modal-header {
+  width: 320px !important;
+  height: 36px !important;
+  padding: 1px !important;
+  border-radius: 10px 10px 0px 0px;
+  border: 0;
+}
+
+.messageModul .ant-modal-content .ant-modal-header .ant-modal-title {
+  width: 320px !important;
+  height: 36px !important;
+  line-height: 36px;
+}
+
+.messageModul .ant-modal-content .ant-modal-body {
+  flex: 1 !important;
+  background: #054678 !important;
+  padding: 0 !important;
+  margin-bottom: 40px !important;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item {
+  display: flex;
+  padding-bottom: 0;
+  margin-bottom: 15px;
+  position: relative;
+  margin-top: 15px;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-explain {
+  position: absolute;
+  top: 0px;
+  right: -62px;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-label {
+  padding-bottom: 0;
+  width: 37%;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-label label {
+  float: right;
+  color: #fff;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-control-wrapper {
+  flex: 1;
+  padding: 0 !important;
+  padding-bottom: 0;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-control-wrapper .ant-form-item-children {
+  display: block;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-control-wrapper .ant-form-item-children .FromInput {
+  margin-left: 5px;
+  width: 134px !important;
+  height: 24px !important;
+  background: #005b8c;
+  border: 1px solid #038fae;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-control-wrapper .ant-form-item-children .Select {
+  width: 135px !important;
+  background: #005b8c !important;
+  margin-left: 5px;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-control-wrapper .ant-form-item-children .Select .ant-select-selection .ant-select-selection__rendered {
+  width: 100% !important;
+  overflow: hidden;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-control-wrapper .ant-form-item-children .newMother {
+  position: absolute;
+  left: 3px;
+  top: 0;
+  width: 132px !important;
+  height: 24px !important;
+  margin-left: 5px;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-control-wrapper .ant-form-item-children .newMother input {
+  text-align: center;
+  width: 135px !important;
+  height: 24px !important;
+  border: 1px solid #038fae;
+}
+
+.messageModul .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-control-wrapper .ant-form-item-children i {
+  display: none;
+}
+
+.messageModul .ant-modal-content .ant-modal-footer {
+  width: 320px !important;
+  height: 36px !important;
+  padding: 0;
+  background: #09395f;
+  border-radius: 0px 0px 10px 10px;
+  border: 0;
+}
+
+.ant-select .ant-select-selection .ant-select-selection__rendered {
+  max-height: 24px;
+}
+
+.ant-select-selection--multiple {
+  max-height: 24px;
+}

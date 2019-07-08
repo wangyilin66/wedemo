@@ -1,0 +1,31 @@
+{
+    "extends": [
+        "react-app"
+    ],
+    "globals": {
+        // 这里填入你的项目需要的全局变量
+        // 这里值为 false 表示这个全局变量不允许被重新赋值，比如：
+        //
+        // jQuery: false,
+        "$": false,
+        "StarRtc": false,
+        // Bigemap
+        "BM": false,
+        "Drafty": false
+    },
+    "rules": {
+        "indent": ["warn", 4],
+//        "indent": "off",
+        "comma-dangle": ["warn", "always"],
+//        "comma-dangle": "off",
+        "semi": ["warn", "always"],
+//        "semi": "off",
+        "default-case": "off",
+        "no-fallthrough": "off",
+        "no-useless-constructor": "off",
+        "jsx-a11y/alt-text": "off",
+        "no-unused-vars": "off",
+        "array-callback-return": "off",
+        "jsx-a11y/anchor-is-valid": "off"
+    }
+}

@@ -1,0 +1,422 @@
+.message {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .jiantou {
+        top: 50%;
+        width: 40px;
+        height: 80px;
+        margin: 0 88px;
+        margin-top: -20px;
+    }
+
+    .deployLeft {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .deployRight {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .deployContent {
+        width: 73%;
+        margin: 0 auto;
+        display: flex;
+
+        .messageLi {
+            width: 420px;
+            height: 800px;
+            border-radius: 5px;
+            padding: 0 20px;
+            background: url(../../../../../../common/img/bg.png) no-repeat;
+            background-size: cover;
+            margin: 0 10px;
+
+            .li {
+                width: 100%;
+
+                .case .textP {
+                    height: 40px;
+                    overflow: hidden;
+                    /*溢出隐藏*/
+                    /* white-space: nowrap; */
+                    /*文字不换行*/
+                    text-overflow: ellipsis;
+                    /*溢出用省略号代替*/
+                }
+
+                .headerUl {
+                    width: 80%;
+                    margin: 0 auto;
+                    margin-top: 30px;
+
+                    h4 {
+                        font-size: 18px;
+                        font-family: DFPYuanW7;
+                        font-weight: 400;
+                        color: rgba(255, 255, 255, 1);
+                        text-align: center;
+                    }
+
+                    .ulContent {
+                        h5 {
+                            font-size: 18px;
+                            font-family: DFPYuanW7;
+                            font-weight: 400;
+                            color: rgba(255, 255, 255, 1);
+                        }
+
+                        .liContent {
+                            width: 100%;
+                            position: relative;
+
+                            .liContentSpan {
+                                width: 100%;
+                                display: flex;
+                                flex-wrap: wrap;
+
+                                span {
+                                    padding: 9px;
+                                    /* width: 43px; */
+                                    font-size: 14px;
+                                    font-family: DFPYuanW7;
+                                    font-weight: 400;
+                                    color: rgba(255, 255, 255, 1);
+                                }
+                            }
+                        }
+
+                        .liA {
+                            width: 100%;
+                            height: 20px;
+
+                            a {
+                                font-size: 12px;
+                                height: 20px;
+                                font-family: DFPYuanW7;
+                                font-weight: 400;
+                                color: rgba(0, 252, 255, 1);
+                                float: right;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            h2 {
+                height: 18px;
+                font-size: 18px;
+                font-family: DFPYuanW7;
+                font-weight: 400;
+                color: rgba(255, 255, 255, 1);
+                text-align: center;
+            }
+
+            .handoverMessage {
+                width: 100%;
+                height: 32px;
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 36px;
+
+                .subCtrls {
+                    flex: 1;
+                    height: 32px;
+                    line-height: 32px;
+                    text-align: center;
+                    display: block;
+                    font-size: 16px;
+                    font-family: DFPYuanW7;
+                    font-weight: 400;
+                    color: rgba(0, 252, 255, 1);
+                    background: linear-gradient(0deg, rgba(0, 125, 202, 1), rgba(7, 32, 59, 1));
+                    border: 1px solid rgba(0, 0, 0, 0.49);
+                }
+            }
+
+            .case {
+                width: 100%;
+                margin-top: 20px;
+
+                h3 {
+                    height: 18px;
+                    font-size: 18px;
+                    line-height: 18px;
+                    font-family: DFPYuanW7;
+                    font-weight: 400;
+                    color: rgba(255, 255, 255, 1);
+                }
+
+                span {
+                    display: block;
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin-top: 16px;
+                    font-family: DFPYuanW7;
+                    color: rgba(255, 255, 255, 1);
+                }
+
+                p {
+                    width: 350px;
+                    font-size: 10px;
+                    font-weight: 400;
+                    font-family: DFPYuanW7;
+                    color: rgba(255, 255, 255, 1);
+                }
+            }
+
+            .actionObject {
+                width: 100%;
+                margin-top: 20px;
+                overflow: hidden;
+
+                .ObjectList {
+                    width: 100%;
+                    display: flex;
+
+                    h3 {
+                        width: 50%;
+                        font-size: 18px;
+                        font-family: DFPYuanW7;
+                        font-weight: 400;
+                        color: rgba(255, 255, 255, 1);
+                    }
+
+                    div {
+                        width: 50%;
+                        float: right;
+                        height: 16px;
+                        line-height: 18px;
+                        font-size: 18px;
+                        color: rgba(0, 252, 255, 1)
+                    }
+                }
+
+                .actionContent {
+                    width: 100%;
+                    height: 440px;
+                    overflow: hidden;
+                    overflow: scroll;
+
+                    dl {
+                        width: 372px;
+                        height: 220px;
+                        background: url(../../../../../../common/deploy-imgs/xingdongduixiang_bg.png) no-repeat;
+                        background-size: cover;
+                        display: flex;
+
+                        dd {
+                            width: 40%;
+                            padding: 40px 20px;
+
+                            img {
+                                width: 100px;
+                                height: 140px;
+                            }
+                        }
+
+                        dt {
+                            margin-top: 30px;
+                            flex: 1;
+
+                            .p {
+                                font-size: 10px;
+                                font-family: DFPYuanW7;
+                                font-weight: 400;
+                                color: rgba(255, 255, 255, 1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .messageConter {
+            flex: 1;
+            overflow: hidden;
+
+            .messageTask {
+                width: 3000px;
+                display: flex;
+                overflow-x: scroll;
+                flex-wrap: nowrap;
+            }
+        }
+    }
+
+
+}
+
+.ant-btn {
+    width: 176px !important;
+    height: 32px !important;
+    display: block;
+    background: linear-gradient(0deg, rgba(0, 125, 202, 1), rgba(7, 32, 59, 1));
+    border: 1px solid rgba(0, 0, 0, 0.49);
+    text-align: center;
+    line-height: 32px;
+    margin: 0 auto;
+}
+
+.operational .operPrepar .ant-btn {
+    margin-top: 125px;
+}
+
+.operational .operPrepar span:nth-child(2) {
+    margin-top: 254px;
+}
+
+.operational .operPrepar span:nth-child(3) {
+    margin-top: 296px;
+}
+
+
+
+.messageConter li .ant-menu .ant-menu-submenu-title {
+    width: 300px;
+    line-height: 32px;
+    background: linear-gradient(0deg, rgba(0, 125, 202, 1), rgba(7, 32, 59, 1));
+}
+
+.ant-menu-item {
+    width: 240px;
+    height: 26px;
+    background: rgba(5, 59, 100, 1);
+    color: #fff;
+}
+
+.messageConter li .Info {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.messageConter li .Info span {
+    margin-top: 10px;
+    display: block;
+    font-size: 16px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(254, 254, 254, 1);
+}
+
+.messageConter li .devices {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.messageConter li .devices h4 {
+    font-size: 16px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(254, 254, 254, 1);
+    /* margin-top: 14px; */
+    width: 100%;
+}
+
+.messageConter li .devices .devicesPart {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.messageConter li .devices .devicesPart h3 {
+    font-size: 12px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(254, 254, 254, 1);
+    margin: 14px 0 19px 0;
+}
+
+.messageConter li .devices .devicesPart .devicesChild {
+    width: 100%;
+}
+
+.messageConter li .devices .devicesPart .devicesChild .contentDev {
+    width: 100%;
+    height: 100%;
+}
+
+.messageConter li .devices .devicesPart .devicesChild .contentDev .devPhone {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+
+}
+
+.messageConter li .devices .devicesPart .devicesChild .contentDev .devPhone span {
+    flex: 1;
+    font-size: 12px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(254, 254, 254, 1);
+    /* margin-bottom: 9px; */
+}
+
+.messageLi .messageLiContent {
+    height: 100%;
+    width: 100%;
+}
+
+.ant-btn-primary {
+    width: 176px;
+    height: 32px;
+    background: linear-gradient(0deg, rgba(0, 125, 202, 1), rgba(7, 32, 59, 1));
+    border: 1px solid rgba(0, 0, 0, 0.49);
+}
+
+.ant-modal-content {
+    width: 320px !important;
+    height: 400px !important;
+    background: rgba(5, 70, 120, 1) !important;
+    box-shadow: 0px 4px 12px 0px rgba(23, 17, 70, 0.21);
+    border-radius: 10px;
+}
+
+.ant-modal-header {
+    width: 320px !important;
+    height: 36px !important;
+    background: rgba(28, 93, 142, 1);
+    border-radius: 10px 10px 0px 0px;
+
+}
+
+.ant-modal-header .ant-modal-title {
+    text-align: center;
+    color: #fff;
+}
+
+.ant-modal-body {
+    width: 320px !important;
+    height: 320px !important;
+}
+
+.ant-modal-footer {
+    width: 320px !important;
+    height: 36px !important;
+    background: rgba(9, 57, 95, 1);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.ant-modal-footer>div {
+    width: 100% !important;
+    display: flex;
+}
+
+.ant-btn {
+    flex: 1 !important;
+    background: none;
+    border: 0;
+}
+
+.headerUl {
+    width: 100%;
+
+}

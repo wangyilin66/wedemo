@@ -1,0 +1,35 @@
+@import '~antd/dist/antd.css';
+* {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+#root , .wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+@media screen and (max-width: 1920px) and (min-width: 1080px) {
+    .wrapper {
+        width: 1920px;
+        margin: 0 auto;
+        position: relative;
+    }
+}
+
+.wrapper {
+    background: url('../images/big_bg.png') no-repeat;
+    background-size: cover;
+}
+
+.link {
+    color: rgba(0, 252, 255, 1);
+    text-decoration: none
+}

@@ -1,0 +1,210 @@
+/*  */
+#outer {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#outer #tab {
+    margin-left: 27px;
+    border: 1px solid #000;
+}
+
+#outer #tab li {
+    color: #ccc;
+    float: left;
+    cursor: pointer;
+    /* line-height: 30px; */
+    list-style: none;
+    padding: 0 20px;
+    border-right: 1px solid #ccc;
+}
+
+#outer #tab li:last-child {
+    border: 0;
+}
+
+#outer #tab .current {
+    color: rgba(0, 252, 255, 1);
+}
+
+#outer #content {
+    margin-top: 24px;
+    padding: 0 33px;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* height: 200px; */
+}
+
+#outer #content li {
+    margin-right: 15px;
+}
+
+#outer #content>div {
+    display: none;
+}
+
+#outer #content .active {
+    width: 100%;
+    flex: 1;
+    display: block
+}
+
+.caseBox {
+    width: 100%;
+    height: 800px;
+    flex: 1;
+}
+
+.caseBox .caseWrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.caseBox .caseWrap li {
+    width: 420px;
+    height: 800px;
+    position: relative;
+    background: url(../../../common/img/bg.png) no-repeat;
+}
+
+.caseBox .caseWrap li .caseNum {
+    position: absolute;
+    left: 40%;
+    top: -20px;
+    font-size: 18px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+
+.caseDetail {
+    position: absolute;
+    padding: 60px 28px 0 28px;
+    box-sizing: border-box;
+}
+
+.caseDetail .detail .userInfo span {
+    height: 14px;
+    font-size: 14px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+
+.caseDetail .detail .caseTime {
+    font-size: 14px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+
+.caseDetail .detail .caseDescribe {
+    /* width:166px; */
+    font-size: 10px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+
+.actionObject {
+    width: 100%;
+    height: 100%;
+    /* background: pink; */
+}
+
+.actionObject .actionTop {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.actionObject .actionTop span:first-child {
+    font-size: 18px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+
+.actionObject .actionTop span:last-child {
+    font-size: 14px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(0, 252, 255, 1);
+}
+
+.actionObject .actionObjectInfo {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.actionObject .actionObjectInfo>div {
+    margin-top: 25px;
+    width: 166px;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: url(../../../common/img/xinxi_bg.png) no-repeat;
+}
+
+.actionObject .actionObjectInfo>div::-webkit-scrollbar {
+    display: none;
+}
+
+.actionObjectInfoWrap dl {
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+}
+
+.actionObjectInfoWrap dl dd {
+    margin: 0;
+    text-align: center;
+}
+
+.actionObjectInfoWrap dl dd img {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.actionObjectInfoWrap dl dt {
+    padding: 0 6px;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-family: DFPYuanW7;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.caseBox .fightPlayback{
+    width: 100%;
+    height: 44px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: content;
+    align-items: center;
+}
+
+.caseBox .fightPlayback a {
+    width: 150px;
+    display: block;
+    line-height: 33px;
+    text-align: center;
+    background: url(../../../common/img/xinxi_btn_bg01.png) no-repeat;
+    background-size: cover;
+} 

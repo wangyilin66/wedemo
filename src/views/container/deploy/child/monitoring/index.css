@@ -1,0 +1,424 @@
+.monitor {
+    padding: 20px 0 25px;
+    width: 100%;
+    position: relative;
+}
+
+ul{
+    margin-bottom: 0;
+}
+
+.monitor-left{
+    width: 378px;
+    /* height: 396px; */
+    text-align: center;
+    float: left;
+}
+
+.device-info {
+    width: 378px;
+    height: 396px;
+    background: url(../../../../../common/monitor-img/shebeixinxi_bg.png) no-repeat;
+}
+
+.tree{
+    scrollbar-arrow-color: #000000; /*上下按钮上三角箭头的颜色*/
+    scrollbar-face-color: #000000; /*滚动条凸出部分的颜色*/
+    scrollbar-3dlight-color: blue; /*滚动条亮边的颜色*/
+    scrollbar-highlight-color: transparent; /*滚动条空白部分的颜色*/
+    scrollbar-shadow-color: #000000; /*yellow滚动条阴影的颜色*/
+    scrollbar-darkshadow-color: green; /*滚动条强阴影的颜色*/
+    scrollbar-track-color: transparent; /*滚动条背景颜色*/
+
+    scrollbar-base-color: black; /*滚动条的基本颜色*/
+    /* Cursor:url(mouse.cur); 自定义个性鼠标 */
+    /*以上2项适用与：body、div、textarea、iframe*/
+}
+
+::-webkit-scrollbar {  /* 滚动条整体部分 */
+    width:2px;
+}
+
+::-webkit-scrollbar-button { /* 滚动条两端的按钮 */
+    width:2px;
+    height: 0;
+    background-color: #000000;
+}
+
+::-webkit-scrollbar:horizontal {
+    height:2px;
+    margin-bottom:2px
+}
+
+::-webkit-scrollbar-track {  /* 外层轨道 */
+    border-radius: 1px;
+}
+
+::-webkit-scrollbar-track-piece {  /*内层轨道，滚动条中间部分 */
+    background-color: transparent;
+    border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb {  /* 滑块 */
+    width:2px;
+    border-radius: 1px;
+    background: #000000;
+}
+
+::-webkit-scrollbar-corner { /* 边角 */
+    width: 2px;
+    background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb:hover { /* 鼠标移入滑块 */
+    background: #000000;
+}
+
+.tree{
+    width: 300px;
+    height: 336px;
+    margin: 20px auto;
+    overflow-y: auto;
+    overflow-x: hidden
+}
+
+.ant-tree, .ant-tree-title {
+    color: #ffffff;
+}
+
+.ant-tree .ant-tree-node-content-wrapper {
+    text-align: left;
+}
+
+.ant-tree > .ant-tree-treenode-switcher-open {
+    width: 300px;
+    background: url(../../../../../common/monitor-img/btn_bg.png) no-repeat;
+}
+
+.ant-tree li .ant-tree-node-content-wrapper:hover {
+    background-color: #053B64;
+}
+
+.ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected {
+    background-color: #053B64;
+}
+
+.ant-tree > li {
+    text-align: left;
+    cursor: pointer;
+}
+
+.ant-tree > li:first-child {
+    padding-top: 5px;
+}
+
+.mapB{
+    width: 378px;
+    height: 396px;
+}
+
+.monitor-middle {
+    float: left;
+    width: 300px;
+    margin-left: 18px;
+}
+
+.monitor-list li {
+    width: 300px;
+    height: 197px;
+    background: url(../../../../../common/monitor-img/tankuang_bg.png) no-repeat
+}
+
+.monitor-list li video{
+    margin: 18px 20px;
+}
+
+.monitor-right {
+    width: 1030px;
+    height: 800px;
+    background: url(../../../../../common/monitor-img/zhengti_bg.png) no-repeat;
+    text-align: center;
+    float: right;
+}
+
+.content {
+    width: 960px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.content > video {
+    border: 1px solid #ccc;
+    float: left;
+}
+
+.content .video-right {
+    height: 400px;
+    position: relative;
+    float: right;
+}
+
+.content .video-right button{
+    width: 56px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #00FCFF;
+    border: none;
+    background: url(../../../../../common/monitor-img/tijiao_bg.png) no-repeat;
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+}
+
+.content .video-right > p {
+    color: #00FCFF;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.video-right .video-control li {
+    width: 102px;
+    background: url(../../../../../common/monitor-img/yuntiakongzhi_bg_n.png) no-repeat;
+    display: inline-block;
+    font-size: 12px;
+    color: #00FCFF;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.video-right .video-control li.active {
+    background: url(../../../../../common/monitor-img/yuntiakongzhi_bg_s.png) no-repeat;
+}
+
+.video-right .video-content {
+    width: 204px;
+    height: 191px;
+    position: relative;
+}
+
+.video-right .video-content .yuntai-left {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 15px;
+    left: 0;
+}
+
+.video-right .video-content .yuntai-right {
+    position: absolute;
+    top: 15px;
+    right: 0;
+}
+
+.video-right .video-content .yuntai-left-bottom {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+}
+
+.video-right .video-content .yuntai-right-bottom {
+    position: absolute;
+    bottom: 8px;
+    right: 0;
+}
+
+.yuntai-left .shang {
+    width: 60px;
+    height: 25px;
+    background: url(../../../../../common/monitor-img/shang_btn.png) no-repeat;
+    position: absolute;
+    top: 0;
+    left: 10px;
+}
+
+.yuntai-left .xia {
+    width: 60px;
+    height: 25px;
+    background: url(../../../../../common/monitor-img/xia_btn.png) no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+}
+
+.yuntai-left .you {
+    width: 25px;
+    height: 60px;
+    background: url(../../../../../common/monitor-img/you_btn.png) no-repeat;
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+
+.yuntai-left .zuo {
+    width: 25px;
+    height: 60px;
+    background: url(../../../../../common/monitor-img/zuo_btn.png) no-repeat;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+.yuntai-left .zhong {
+    width: 52px;
+    height: 52px;
+    background: url(../../../../../common/monitor-img/zhong_btn.png) no-repeat;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
+
+.yuntai-left .shang {
+    width: 60px;
+    height: 25px;
+    background: url(../../../../../common/monitor-img/shang_btn.png) no-repeat;
+}
+
+.yuntai-right p, .yuntai-left-bottom p, .yuntai-right-bottom p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.yuntai-right p span, .yuntai-left-bottom p span, .yuntai-right-bottom p span{
+    margin-left: 12px;
+}
+
+.yuntai-left-bottom p span:first-child {
+    margin-left: 0;
+}
+
+.ant-slider {
+    width: 52px;
+    margin: 6px 0;
+}
+
+.anniu {
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    text-align: center;
+    background: url(../../../../../common/monitor-img/xiaoanniu_bg.png) no-repeat;
+}
+
+.anniu i.jia{
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin: 4px auto;
+    background: url(../../../../../common/monitor-img/jia_icon.png) no-repeat;
+}
+
+.anniu i.jian{
+    display: block;
+    width: 12px;
+    height: 2px;
+    margin: 9px auto;
+    background: url(../../../../../common/monitor-img/jian_icon.png) no-repeat;
+}
+
+.video-right .video-content p {
+    font-size: 12px;    
+    margin-bottom: 5px;
+    color: #00FCFF;
+    text-align: left;
+}
+
+.video-right .video-content.attribute {
+    padding: 30px 0
+}
+
+.remark {
+    width: 201px;
+    height: 150px;
+    background: url(../../../../../common/monitor-img/beizhu_bg.png) no-repeat;
+    text-indent: 10px;
+}
+
+.btn {
+    width: 18px;
+    height: 87px;
+    position: absolute;
+    top: 357px;
+    cursor: pointer;
+}
+
+.btn.shouqi {
+    right: 1030px;
+    background: url(../../../../../common/monitor-img/shouqi_btn.png) no-repeat;
+}
+
+.btn.tankai {
+    right: 0;
+    background: url(../../../../../common/monitor-img/tankai_btn.png) no-repeat;
+}
+
+.brilliant-moment {
+    width: 960px;
+    height: 100px;
+    background: url(../../../../../common/monitor-img/biaozhu_bg.png) no-repeat;
+    position: absolute;
+    top: 415px;
+    left: 0;
+    padding: 10px 20px;
+}
+
+.brilliant-moment li {
+    font-size: 12px;
+    text-align: left;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.nearby {
+    width: 100%;
+    position: absolute;
+    top: 530px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.nearby span:last-child {
+    font-size: 12px;
+    color: #00FCFF;
+    cursor: pointer;
+}
+
+.nearby-list {
+    width: 100%;
+    position: absolute;
+    top: 565px;
+}
+
+.nearby-list li {
+    float: left;
+    font-size: 12px;
+}
+
+.nearby-list li video{
+    display: inline-block;
+}
+
+.markList {
+    display: inline-block;
+    margin: 10px 25px 10px 10px;
+    width: 214px;
+    height: 60px;
+    overflow-y: auto;
+    padding: 5px;
+    background: url(../../../../../common/monitor-img/linjinshipin_bg.png) no-repeat;
+}
+
+.markList.mr0{
+    margin-right: 0;
+}
+
+.markList li {
+    font-size: 8px;
+}
+
+.markList li.title{
+    font-size: 12px;
+}

@@ -1,0 +1,100 @@
+
+.CeateModal {
+	width: 600px !important;
+	height: 700px !important;
+	background: rgba(5, 70, 120, 1) !important;
+	box-shadow: 0px 4px 12px 0px rgba(23, 17, 70, 0.21);
+	border-radius: 10px;
+	.ant-modal-content {
+		width: 100% !important;
+		height: 700px !important;
+		display: flex;
+		flex-direction: column;
+		.ant-modal-close-x {
+			width: 48px !important;
+			height: 16px !important;
+			font-size: 13px !important;
+			font-style: normal;
+			line-height: 16px !important;
+		}
+		.ant-modal-header {
+			width: 600px !important;
+			height: 36px !important;
+			background: rgba(28, 93, 142, 1);
+			border-radius: 10px 10px 0px 0px !important;
+			padding: 0;
+			.ant-modal-title {
+				line-height: 36px;
+			}
+		}
+		.ant-modal-body {
+			width: 100% !important;
+			flex: 1;
+			.verticalHeader {
+				width: 100%;
+				padding: 10px 10px !important;
+				display: flex;
+				.RequestInput {
+					width: 50% !important;
+					display: flex;
+					.ant-form-item-label {
+						width: 30% !important;
+					}
+					.ant-form-item-control-wrapper {
+						width: 50%;
+						.RequestContent {
+							width: 130px !important;
+							height: 24px !important;
+							background: linear-gradient(0deg, rgba(0, 180, 255, 0.15));
+							border: 1px solid rgba(3, 143, 174, 1) !important;
+						}
+					}
+					.Requirebutton {
+						// float: left;
+					}
+					.addContent {
+						width: 100px !important;
+						font-size: 12px !important;
+						height: 24px !important;
+						line-height: 24px !important;
+						font-family: DFPYuanW7;
+						font-weight: 400;
+						color: rgba(0, 252, 255, 1);
+					}
+				}
+			}
+			.verticalList {
+				height: 100% !important;
+				.InputContentList {
+					padding: 0 10px;
+					height: 100% !important;
+					font-size: 12px !important;
+					h2 {
+						height: 12px !important;
+						font-size: 12px !important;
+						font-family: DFPYuanW7;
+						font-weight: 400;
+						color: rgba(0, 252, 255, 1);
+						margin-top: 19px;
+						margin-bottom: 19px;
+					}
+					// text-align: center;
+					.chackboxPhon {
+						padding: 0 10px;
+					}
+				}
+			}
+			// .verticalHeader{
+			// 	display: flex;
+
+			// }
+		}
+		.ant-modal-footer {
+			padding: 0;
+			width: 600px !important;
+			height: 36px !important;
+			background: rgba(9, 57, 95, 1);
+			border-radius: 0px 0px 10px 10px;
+		}
+	}
+}

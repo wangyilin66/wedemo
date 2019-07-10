@@ -302,7 +302,7 @@ class TinodeWeb extends React.Component {
     if (hash.path && hash.path.length > 0) {
       // Left-side panel selector.
       if (['register','settings','edit','cred','reset','newtpk','archive','contacts',''].includes(hash.path[0])) {
-        this.setState({sidePanelSelected: hash.path[0]});
+        //this.setState({sidePanelSelected: hash.path[0]});
       } else {
         console.log("Unknown sidepanel view", hash.path[0]);
       }
@@ -525,7 +525,8 @@ class TinodeWeb extends React.Component {
         this.handleError(err.message, 'err');
         HashNavigation.navigateTo('');
       });
-    HashNavigation.navigateTo(HashNavigation.setUrlSidePanel(window.location.hash, 'contacts'));
+      this.setState({sidePanelSelected:'contacts'});
+    //HashNavigation.navigateTo(HashNavigation.setUrlSidePanel(window.location.hash, 'contacts'));
   }
 
   tnMeMetaDesc(desc) {
@@ -975,12 +976,15 @@ class TinodeWeb extends React.Component {
 
   // User clicked a (+) menu item.
   handleNewTopic() {
+    console.log("handleNewTopic");
     this.setState({sidePanelSelected: 'newtpk'});
     //HashNavigation.navigateTo(HashNavigation.setUrlSidePanel(window.location.hash, 'newtpk'));
   }
 //从通讯录切换到聊天列表
   handleChat(){
-    HashNavigation.navigateTo(HashNavigation.setUrlSidePanel(window.location.hash, 'contacts'));
+    console.log("handleChat");
+    this.setState({sidePanelSelected: 'contacts'});
+    //HashNavigation.navigateTo(HashNavigation.setUrlSidePanel(window.location.hash, 'contacts'));
     //window.location.hash = setUrlSidePanel(window.location.hash, 'contacts');
 }
 

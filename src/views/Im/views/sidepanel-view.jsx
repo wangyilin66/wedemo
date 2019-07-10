@@ -75,7 +75,8 @@ class SidepanelView extends React.Component {
   render() {
     const {formatMessage} = this.props.intl;
     const view = this.props.state || (this.props.myUserId ? 'contacts' : 'login');
-
+    console.log("this.props.state:"+this.props.state);
+console.log("view:"+view);
     let title, avatar;
     if (view === 'contacts') {
       title = this.props.title;

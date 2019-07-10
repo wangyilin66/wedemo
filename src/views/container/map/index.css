@@ -18,9 +18,9 @@
     top:50%;
     margin-left: -160px;
     margin-top: -185px;
-    background: url('../../../common/images/popup_bg.png') 100% 100%;
-    background: rgba(#063358, 0.7);
+    background:linear-gradient(0deg,rgba(7,32,59,1),rgba(0,125,202,1));
     z-index: 99;
+    opacity: 0.9;
     display: none;
 }
 
@@ -81,6 +81,14 @@
     position: absolute;
     left: 224px;
     bottom: 53px;
+    cursor:pointer;
+}
+.popup .toIm{
+    width: 36px;
+    height: 37px;
+    position: absolute;
+    left: 139px;
+    bottom: 47px;
     cursor:pointer;
 }
 
@@ -171,16 +179,18 @@ height: 26px;
     text-align: left;
     height: 60px;
     display: flex;
+    color:#fff;
 } 
-/*
-.play_back_timebox .time_select_box .ant-calendar-picker-input input{
+
+.play_back_timebox .time_select_box .ant-calendar-range-picker-input{
     width: 49%;
     font-size: 12px;
     background:rgba(34,102,146,0.7);
-    margin-left: 40px;
+    color:#fff;
     overflow: auto;
+    font-size: 14px;
 }
-
+/*
 .play_back_timebox .time_select_box .ant-calendar-picker-icon{
     display: none;
 }
@@ -476,7 +486,7 @@ font-size: 14px;
     position: relative;
     cursor:pointer;
 }
-.show .cont li img{
+.show .cont li .sppic{
     width: 39px;
     height: 39px;
     border-radius: 50%;
@@ -489,7 +499,8 @@ font-size: 14px;
     color:rgba(0,252,255,1);
     margin-left: 20px;
     position: absolute;
-    top:20px;
+    top:6px;
+    left: 36px;
 }
 
  .searchinp{
@@ -500,7 +511,7 @@ font-size: 14px;
     box-shadow:0px 0px 6px 0px rgba(12,69,105,0.8);
     position: absolute;
     top:59px;
-    left: 705px;
+    left: 765px;
     border-radius: 2px;
     z-index: 90;
     box-sizing: border-box;

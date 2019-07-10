@@ -2,7 +2,9 @@ import React, { Component, } from 'react';
 import "./index.css";
 import { Icon, message, Tree, DatePicker, } from 'antd';
 import moment from 'moment';
+import 'moment/locale/zh-cn';
 import { connect, } from 'react-redux';
+import zh_CN from 'antd/lib/date-picker/locale/zh_CN';
 //地图动画包
 import './bm.geometryutil.js';
 //IM模块引入
@@ -13,6 +15,7 @@ import Carpic from './img/common_icon_gongzuocheliang.png';
 import peoplepic from './img/common_icon_gongzuorenyuan.png';
 import machinepic from './img/common_icon_gongzuoshebei.png';
 import car from '../../../common/img/car.png';
+moment.locale('zh-cn');
 // import "./mouse_draw/Bigemap.draw.js";
 // import "./mouse_draw/Bigemap.Draw.Event.js";
 // import "./mouse_draw/draw/handler/Draw.Feature.js";
@@ -94,11 +97,14 @@ class map extends Component {
             devicemarkerlist: [],
             markerList: [],
             allNameList: [],
+            treenamelist:[],
             RtcId:null,
             treeData:[],
             playList:{},
             playflaglist:[],
             play_off_flag:true,
+            playLtime:'',
+            playRtime:'',
             gData: [{
                 "title": "朝阳区",
                 "key": "0-0",
@@ -290,6 +296,21 @@ class map extends Component {
 
     }
 
+    // mouseUp = (ind,s) => {
+    //     let newS = s;
+    //     if (newS[ind] === true) {
+    //         newS[ind] = false;
+    //         this.setState({
+    //             s: newS,
+    //         });
+    //     } else {
+    //         newS[ind] = true;
+    //         this.setState({
+    //             s: newS,
+    //         });
+    //     }
+    // }
+
 
     componentWillMount() {
 
@@ -320,8 +341,7 @@ class map extends Component {
                 that.state.markerList.map((val, ind) => {
                     if(val._tooltip._content === e.target._tooltip._content){
                         let iconname = e.target._tooltip._content;
-                        that.state.allNameList.map((val2,ind2) =>{
-                       
+                        that.state.allNameList.map((val2) =>{
                             if(val2.realName === iconname){
                                 that.setState({
                                     RtcId:val2.userId,
@@ -329,11 +349,51 @@ class map extends Component {
                                 console.log("配对成功，开始呼叫RTC ID 为" + val2.userId + "的用户");
                             }
                         });
-                    }
+                    };
+                    console.log(val._tooltip._content, e.target._tooltip._content);
+                    that.state.carList.map(item => {
+                        if (item.driver == e.target._tooltip._content) {   
+                            that.refs.popupli1.innerHTML = '车辆编号:' ;
+                            that.refs.popupli2.innerHTML = '定位:';
+                            that.refs.popupli3.innerHTML = '驾驶员:' + item.driver;
+                            that.refs.popupli4.innerHTML = '单位:';
+                            that.refs.popupli5.innerHTML = '电话:' + item.driverPhone;
+                            that.refs.popupimg1.style.display = 'block';
+                            that.refs.popupimg2.style.display = 'block';
+                            that.refs.popupimg3.style.display = 'block';
+                            that.refs.popupimg4.style.display = 'none';
+                        }
+                    });
+                    that.state.deviceList.map(item => {
+                        if (item.deviceName == e.target._tooltip._content) {   
+                            that.refs.popupli1.innerHTML = '名称:' + item.deviceName ;
+                            that.refs.popupli2.innerHTML = '定位:';
+                            that.refs.popupli3.innerHTML = '单位:';
+                            that.refs.popupli4.innerHTML = '其他信息:';
+                            that.refs.popupli5.innerHTML = '电话:';
+                            that.refs.popupimg1.style.display = 'none';
+                            that.refs.popupimg2.style.display = 'none';
+                            that.refs.popupimg3.style.display = 'block';
+                            that.refs.popupimg4.style.display = 'none';
+                        }
+                    });
+                    that.state.userList.map(item => {
+                        if (item.realName == e.target._tooltip._content) {   
+                            that.refs.popupli1.innerHTML = '姓名:'+item.realName ;
+                            that.refs.popupli2.innerHTML = '定位:';
+                            that.refs.popupli3.innerHTML = '单位:';
+                            that.refs.popupli4.innerHTML = '职务:';
+                            that.refs.popupli5.innerHTML = '电话:';
+                            that.refs.popupimg1.style.display = 'block';
+                            that.refs.popupimg2.style.display = 'block';
+                            that.refs.popupimg3.style.display = 'none';
+                            that.refs.popupimg4.style.display = 'block';
+                        }
+                    });
 
-                    if (val._latlng.lat === e.latlng.lat && val._latlng.lng === e.latlng.lng) {
+                    if (val._tooltip._content === e.target._tooltip._content) {
                         console.log(val);
-                        that.refs.popupli3.innerHTML = '驾驶员：' + val._tooltip._content;
+                       
                         that.refs.popupbox.style.display = "block";
                     }
                 });
@@ -483,7 +543,7 @@ class map extends Component {
         console.log(innertext);
         let playlist = this.state.playList;
         console.log(playlist);
-        console.log(this.state.allNameList);
+        console.log(this.state.treenamelist);
         //console.log(innertext);
         if (!pbl.includes(innertext)) {
             pbl.push(innertext);
@@ -492,62 +552,60 @@ class map extends Component {
             });  
         }
          
-        this.state.allNameList.map((v,i) => {
-          if(v.driver === innertext || v.deviceName === innertext || v.realName === innertext){
-            let k = 'a' + v.userId;
-            let ks = v.userId;
-            let nams = innertext;
-            if(!this.state.playList.k){
-                this.$axios({
-                    method: "get",
-                    url: "http://39.98.37.28:8085/command/combat/getGpsRecordByCaseIdAndTime?caseId=1&startTime=2018-01-1&endTime=2019-10-10",
-                }).then((res) => {
-                    let arr = [];
-                res.userGpsList.map((v,i) => {
-                    let ar = [];
-                   if(v.userId == ks){
-                       //if(i >= 8 && i <= 9){ 
-                        ar.push(v.latitude);
-                        ar.push(v.longitude);
-                        arr.push(ar);    
-                      // }
+        this.state.treenamelist.map((v,i) => {
+            if(v === innertext){
+                let ks = i;
+                let kss = 'a'+i;
+                let nams = innertext;
+                console.log(this.state.playList.kss);
+                if(!this.state.playList.kss){
+                    this.$axios({
+                        method: "get",
+                        url: "http://39.98.37.28:8085/command/combat/getGpsRecordByCaseIdAndTime?caseId=1&startTime=2018-01-1&endTime=2019-10-10",
+                    }).then((res) => {
+                        let arr = [];
+                        res.userGpsList.map((v,i) => {
+                            let ar = [];
+                            if(v.userId == 2){
+                                //if(i >= 8 && i <= 9){ 
+                                ar.push(v.latitude);
+                                ar.push(v.longitude);
+                                arr.push(ar);    
+                                // }
                
-                   }
-                })
-                console.log(arr);
-                console.log([arr[8],arr[9]]);
-                this.drawLine([...arr,[39.914476331396216,116.56150714676211]],ks,nams);
-            });
-               }else{
-                this.state.playList.a2.marker.pauseMove();
-                this.state.playList.a2.marker.remove();
-                this.state.playList.a2.polyline.remove();
-                delete playlist.a2;
-                console.log(playlist);
-                this.setState({
-                    playList:playlist
-                })
-               }
+                            }
+                        });
+                        console.log(arr);
+                        console.log([arr[8],arr[9],]);
+                        this.drawLine([...arr,[39.914476331396216,116.56150714676211,],],ks,nams);
+                    });
+                }else{
+                    this.state.playList.ks.marker.pauseMove();
+                    this.state.playList.ks.marker.remove();
+                    this.state.playList.ks.polyline.remove();
+                    delete playlist.ks;
+                    console.log(playlist);
+                    this.setState({
+                        playList:playlist,
+                    });
+                }
 
-          }
-        })
+            }
+        });
 
         //if (innertext) {
  
        
 
-            // this.setState({
-            //     playflaglist:[...this.state.playflaglist,innertext]
-            // })
+        // this.setState({
+        //     playflaglist:[...this.state.playflaglist,innertext]
+        // })
         //}
 
     }
 
     timeChange = (value, dateString) => {
 
-    }
-    timeOk = (value) => {
-        console.log('timeok ：：：：', value);
     }
 
 
@@ -563,7 +621,7 @@ class map extends Component {
 
     disabledDate = (current) => {
         // Can not select days before today and today
-        console.log(this.state.filingTime);
+        //console.log(this.state.filingTime);
         let str = this.state.filingTime;
         let newstr = str.slice(0, str.indexOf(' '));
         let arr = newstr.split('-');
@@ -575,7 +633,7 @@ class map extends Component {
             --arrind;
         };
         narr[1] = arrind;
-        console.log(narr);
+        //console.log(narr);
 
         return current && current <= moment(narr);
     }
@@ -598,10 +656,11 @@ class map extends Component {
     componentDidMount() {
         var that = this;
         let carmarker = [];
+        let CaseId = this.props.anjianID.CaseId;
         //地图配置ip
-        window.BM.Config.HTTP_URL = 'http://localhost:9000';
+        window.BM.Config.HTTP_URL = 'http://47.111.133.91:9000';
         //生成地图实例
-        this.bigmap = window.BM.map('map', 'bigemap.8af4bjs4', { center: [39.90355880302419, 116.39554595927622,], zoom: 16, zoomControl: false, });
+        this.bigmap = window.BM.map('map', 'bigemap.7i57a7hx', { center: [39.90355880302419, 116.39554595927622,], zoom: 16, zoomControl: false, });
         let map = this.bigmap;
         var drawnItems = new window.BM.FeatureGroup();
 
@@ -615,14 +674,14 @@ class map extends Component {
                 Authorization: JSON.parse(localStorage.getItem('user')).token,
             },
             method: "get",
-            url: "http://39.98.37.28:8085/command/combat/getCaseDetailByTokenAndCaseId?id=5",
+            url: "http://39.98.37.28:8085/command/combat/getCaseDetailByTokenAndCaseId?id="+CaseId,
         }).then((res) => {
             console.log(res);
             if (res.code === 1) {
                 this.setState({
                     showtitle: res.data.name,
                     namelis: res.data.actionObjectList,
-                    filingTime: res.data.filingTime,
+                    filingTime: res.data.createTime,
                     laname: res.data.responsibleName,
                 });
             } else {
@@ -640,13 +699,13 @@ class map extends Component {
         //获取历史标记点
         this.$axios({
             method: "get",
-            url: "http://39.98.37.28:8085/command/combat/selectMapPointByCondition?caseId=5",
+            url: "http://39.98.37.28:8085/command/combat/selectMapPointByCondition?caseId="+CaseId,
         }).then((res) => {
             if (res.code === 1) {
                 let iconlist = [];
                 console.log(res.data);
                 res.data.map((v, i) => {
-                    if (v.caseId == 5) {
+                    if (v.caseId === CaseId) {
                         iconlist.push(v);
                     }
                 });
@@ -660,34 +719,42 @@ class map extends Component {
             }
         });
 
-                //获取车辆 人员 工作设备
-                this.$axios({
-                    method: "get",
-                    url: "http://39.98.37.28:8085/command/combat/getMissionListByCaseId?caseId=5",
-                }).then((res) => {
-                    let carlist = [], devicelist = [], userlist = [];    
-                    this.setState({
-                        treeData:res.data,
-                    })        
-                    if (res.code == 1) {
-                        res.data.map((v, i) => {
-                            v.teamList.map((val, ind) => {
-                                devicelist = [...devicelist, ...val.deviceList];
-                                carlist = [...carlist, ...val.carList];
-                                userlist = [...userlist, ...val.userList];
-                            });
+        //获取车辆 人员 工作设备
+        this.$axios({
+            method: "get",
+            url: "http://39.98.37.28:8085/command/combat/getMissionListByCaseId?caseId="+CaseId,
+        }).then((res) => {
+            let carlist = [], devicelist = [], userlist = [],treenamelist = [];
+            this.setState({
+                treeData:res.data,
+            });        
+            if (res.code == 1) {
+                res.data.map((v, i) => {
+                    v.teamList.map((val) => {
+                        devicelist = [...devicelist, ...val.deviceList,];
+                        carlist = [...carlist, ...val.carList,];
+                        userlist = [...userlist, ...val.userList,];
+                        val.userList.map(v => {
+                        treenamelist = [...treenamelist,...[v.realName,],];
                         });
-                        this.setState({
-                            carList: carlist,
-                            deviceList: devicelist,
-                            userList: userlist,
-                            allNameList: [...carlist,...devicelist,...userlist],
-                        });
-                        //this.map_add_icon(carlist, devicelist, userlist);    
-                    } else {
-                        console.log('任务列表获取失败');
-                    };
+                    });
+                    if (v.actionObject) {
+                        let arr = [v.actionObject,];
+                        treenamelist = [...treenamelist,...arr,];
+                    }
                 });
+                this.setState({
+                    carList: carlist,
+                    deviceList: devicelist,
+                    userList: userlist,
+                    treenamelist:treenamelist,
+                    allNameList: [...carlist,...devicelist,...userlist,],
+                });
+                //this.map_add_icon(carlist, devicelist, userlist);    
+            } else {
+                console.log('任务列表获取失败');
+            };
+        });
         // this.$axios({
         //     method: "get",
         //     url: "http://39.98.37.28:8085/command/combat/getMissionListByCaseId?caseId=5",
@@ -1008,16 +1075,16 @@ class map extends Component {
                 icon: window.BM.icon({
                     iconUrl: car,
                     iconAnchor: [25, 15,],
-                    iconSize:[52, 26],
+                    iconSize:[52, 26,],
                 }),
             }).addTo(map);
             m.bindTooltip(title);   
             markers['a'+name] = { marker: m, polyline: polyline,};
-             m.moveAlong(polyline,1500);
-           //run_draw_line(play_back_list);
-           that.setState({
-          playList:{...that.state.playList,...markers}
-           });
+            //m.moveAlong(polyline,1500);
+            //run_draw_line(play_back_list);
+            that.setState({
+                playList:{...that.state.playList,...markers,},
+            });
         }
         this.drawLine = draw_line;
         // function run_draw_line(obj) {
@@ -1244,9 +1311,58 @@ class map extends Component {
     }
 
     offplay = () => {
-     
+        let palylist = this.state.playList;
+        Object.keys(palylist).map(key => {
+            return palylist[key].marker.moveAlong(palylist[key].polyline, 1500);
+        });
+        this.setState({
+            play_off_flag:false,
+        });
+
     }
+
     noplay = () => {
+        let palylist = this.state.playList;
+        Object.keys(palylist).map(key => {
+            return palylist[key].marker.pauseMove();
+        });
+        this.setState({
+            play_off_flag:true,
+        });
+    }
+
+    Tospeed = () =>{
+        let palylist = this.state.playList;
+        Object.keys(palylist).map(key => {
+            return palylist[key].marker.setSpeed(palylist[key].marker.getSpeed()-200);
+        });
+    }
+
+    Tofast = () =>{
+        let palylist = this.state.playList;
+        Object.keys(palylist).map(key => {
+            return palylist[key].marker.setSpeed(palylist[key].marker.getSpeed()+200);
+        });
+    }
+
+    callTheImUser = () =>{
+        let name = this.refs.popupli1.innerHTML;
+        name = name.slice(name.indexOf(':')+1);
+        this.state.userList.map(item => {
+            if(item.realName === name){
+                this.props.sendUserId(item.suid);
+            }
+        });
+    }
+
+    timeOnOk = (value) => {
+        console.log('timeok ：：：：', value);
+        let inps = document.querySelectorAll('.ant-calendar-range-picker-input');
+        console.log(inps[0].value,inps[1].value);
+        this.setState({
+            playLtime: inps[0].value,
+            playRtime: inps[1].value,
+        });
 
     }
 
@@ -1255,30 +1371,43 @@ class map extends Component {
         const loop = (data,ind,i) => {
             let trData = data;
             let childind = ind+'-'+i;
-            console.log(this.state.treeData);
+            if(data.createTime){
+               let a = <TreeNode key={childind+'-'+'0'} title={data.actionObject} />
+                return <TreeNode key={ind+'-'+i} title={data.name}>{a}</TreeNode>;
+            }else{
+                let trelis = trData.map(item => {
+                    function a() {
+                        let a = 0;
+                        let alis = [];
+                        if(item.deviceList){
+                            item.deviceList.map((v,i) => {
+                                alis.push(<TreeNode key={childind+'-'+a++} title={v.deviceName} />);
+                            });  
+                        }
+                        if(item.userList){
+                            item.userList.map((v,i) => {
+                                alis.push(<TreeNode key={childind+'-'+a++} title={v.realName} />);
+                            });
+                        }
+                        if(item.carList){
+                            item.carList.map((v,i) => {
+                                alis.push(<TreeNode key={childind+'-'+a++} title={v.driver} />);
+                            });
+                        }
+                        return alis;
+                    }
+                    return a();
+                });
+                          
+                return <TreeNode key={ind+'-'+i} title={trData[0].name}>{trelis}</TreeNode>;
+            }
 
-           let trelis = trData.map(item => {
-                function a() {
-                    let a = 0;
-                    let alis = [];
-                    item.deviceList.map((v,i) => {
-                        alis.push(<TreeNode key={childind+'-'+a++} title={v.deviceName} />)
-                    })               
-                    item.userList.map((v,i) => {
-                        alis.push(<TreeNode key={childind+'-'+a++} title={v.realName} />)
-                   })
-                   item.carList.map((v,i) => {
-                    alis.push(<TreeNode key={childind+'-'+a++} title={v.driver} />)
-                   })
-                   return alis
-                  }
-                  return a();
-            })
-                      
-           return <TreeNode key={ind+'-'+i} title={trData[0].name}>{trelis}</TreeNode>
+
+
+   
            
-           // }
-        }
+            // }
+        };
         return (
             <div className="mapbox">
                 <div id="map">
@@ -1303,35 +1432,36 @@ class map extends Component {
                         <li ref='popupli5'>电话:</li>
                     </ul>
                     <img ref='popupimg1' className="call" title="拨号" src={require('./img/tankuang_btn_01.png')}></img>
-                    <img ref='popupimg2' className="vid" title="设备视频" src={require('./img/tankuang_btn_03.png')}></img>
-                    <img onClick={this.callTheRtc} ref='popupimg3' className="vid2" title="发起视频" src={require('./img/tankuang_btn_04.png')}></img>;
+                    <img   onClick={this.callTheRtc} ref='popupimg2' className="vid" title="视频聊天" src={require('./img/tankuang_btn_03.png')}></img>
+                    <img ref='popupimg4' onClick={this.callTheImUser} className="toIm" title="发起聊天" src={require('./img/tankuang_btn_02.png')}></img>
+                   <img ref='popupimg3' className="vid2" title="监控视频" src={require('./img/tankuang_btn_04.png')}></img>
 
-     </div>
+                </div>
 
                 <div className="slide_tool">
                     <ul>
                         <li id="mapsmall" onMouseDown={() => { this.mouseDown(0, this.state.slidelist); }}
-                            onMouseUp={() => { this.mouseUp(0, this.state.slidelist); }}>
+                            onMouseUp={() => { this.mouseDown(0, this.state.slidelist); }}>
                             {this.state.slidelist[0] ? <img src={require('../../../common/images/common_icon_n_06.png')}></img>
                                 : <img src={require('../../../common/images/common_icon_p_01.png')}></img>}
                         </li>
                         <li id="mapbig" onMouseDown={() => { this.mouseDown(1, this.state.slidelist); }}
-                            onMouseUp={() => { this.mouseUp(1, this.state.slidelist); }}>
-                            {this.state.slidelist[1] ? <img src={require('../../../common/images/common_icon_n_07.png')}></img>
+                            onMouseUp={() => { this.mouseDown(1, this.state.slidelist); }}>
+                            {this.state.slidelist[1] ?<img src={require('../../../common/images/common_icon_n_07.png')}></img> 
                                 : <img src={require('../../../common/images/common_icon_p_02.png')}></img>}
                         </li>
                         <li id="circle" onMouseDown={() => { this.mouseDown(2, this.state.slidelist); }}
-                            onMouseUp={() => { this.mouseUp(2, this.state.slidelist); }}>
+                            onMouseUp={() => { this.mouseDown(2, this.state.slidelist); }}>
                             {this.state.slidelist[2] ? <img src={require('../../../common/images/common_icon_n_08.png')}></img>
                                 : <img src={require('../../../common/images/common_icon_p_03.png')}></img>}
                         </li>
                         <li id="square" onMouseDown={() => { this.mouseDown(3, this.state.slidelist); }}
-                            onMouseUp={() => { this.mouseUp(3, this.state.slidelist); }}>
+                            onMouseUp={() => { this.mouseDown(3, this.state.slidelist); }}>
                             {this.state.slidelist[3] ? <img src={require('../../../common/images/common_icon_n_09.png')}></img>
                                 : <img src={require('../../../common/images/common_icon_p_04.png')}></img>}
                         </li>
                         <li id="start" onMouseDown={() => { this.mouseDown(4, this.state.slidelist); }}
-                            onMouseUp={() => { this.mouseUp(4, this.state.slidelist); }}>
+                            onMouseUp={() => { this.mouseDown(4, this.state.slidelist); }}>
                             {this.state.slidelist[4] ? <img src={require('../../../common/images/common_icon_n_10.png')}></img>
                                 : <img src={require('../../../common/images/common_icon_p_05.png')}></img>}
                         </li>
@@ -1416,7 +1546,7 @@ class map extends Component {
                         <ul>
                             {
                                 this.state.namelis && this.state.namelis.map((v, i) => {
-                                    return <li key={i}><img src={require('../../../common/images/u1068.png')}></img><span>{v.name}</span></li>;
+                                    return <li key={i}><div className='sppic' style={{background:`url(${v.picUrl}) center center`}}></div><span>{v.name}</span></li>;
                                 })
                             }
                         </ul>
@@ -1442,7 +1572,7 @@ class map extends Component {
                 <div className="left_play_back_box">
                     <div className="left_play_back_box_title">资源部署情况</div>
                     <ul id="play_back_move2" className="left_play_back_box_contact">
-                        {/* <Tree
+                        <Tree
                             className="draggable-tree"
                             defaultExpandedKeys={this.state.expandedKeys}
                             onSelect={this.treeclick}
@@ -1450,26 +1580,24 @@ class map extends Component {
                         
                             { 
                                 this.state.treeData.map((item,ind) => {
-                                    if(item.teamList){
-                                        return <TreeNode key={'0-'+ind} title={item.name}>
-                                        {loop(item.teamList,'0-'+ind,ind)}
-                                        </TreeNode> 
+                                    if(item.teamList.length == 0){
+                                        return loop(item,'0-'+ind,ind);
                                     }else{
                                         return <TreeNode key={'0-'+ind} title={item.name}>
-                                        {loop(item.teamList,'0-'+ind,ind)}
-                                        </TreeNode> 
+                                            {loop(item.teamList,'0-'+ind,ind)}
+                                        </TreeNode>; 
                                     }
                                   
                                 })
                             
                             }
-                        </Tree> */}
+                        </Tree>
                     </ul>
                 </div>
 
                 <div className='return_play_back'>
                     <img className='play_reback' src={require('../../../common/images/zuozhanhuifang_icon_02.png')}></img>
-                    <img src={require('../../../common/images/zuozhanhuifang_icon_01.png')}></img>
+                    <img src={require('../../../common/images/play_back_but.png')}></img>
                 </div>
 
                 <div className='play_back_timebox'>
@@ -1479,24 +1607,21 @@ class map extends Component {
                             hideDisabledOptions: true,
                             defaultValue: [moment('00:00:00', 'HH:mm:ss'), moment('11:59:59', 'HH:mm:ss'),],
                         }}
+                        locale={zh_CN}
                         format="YYYY-MM-DD HH:mm:ss"
                         className='time_select_box'
                         placeholder={['开始时间', '结束时间',]}
+                        onOk={this.timeOnOk}
                     />
                     <div className='contact_rit'>
-                        <div className='play_back_seatch'>
-                            确认查询
-                        </div>
                         <div className='play_click'>
-                            <img src={require('../../../common/images/zuozhanhuifang_icon_04.png')}></img>
+                            <img onClick={this.Tospeed} src={require('../../../common/images/zuozhanhuifang_icon_04.png')}></img>
                             {
-                                this.state.play_off_flag == true ? 
-                                <img className='play_stop' onClick={this.offplay} src={require('../../../common/images/zuozhanhuifang_icon6.png')}></img>:
-                                <img className='play_stop' onClick={this.noplay}  src={require('../../../common/images/zuozhanhuifang_icon_03.png')}></img>
-                            }
-                            
-                           
-                            <img src={require('../../../common/images/zuozhanhuifang_icon_05.png')}></img>
+                                this.state.play_off_flag == false ? 
+                                    <img className='play_stop' onClick={this.noplay} src={require('../../../common/images/zuozhanhuifang_icon6.png')}></img>:
+                                    <img className='play_stop' onClick={this.offplay}  src={require('../../../common/images/zuozhanhuifang_icon_03.png')}></img>
+                            }               
+                            <img onClick={this.Tofast} src={require('../../../common/images/zuozhanhuifang_icon_05.png')}></img>
                         </div>
                     </div>
                 </div>
@@ -1507,7 +1632,6 @@ class map extends Component {
                     this.state.hideall === true ? <PlayBackBox></PlayBackBox> : null
                 }
 
-
             </div>
         );
     }
@@ -1515,10 +1639,10 @@ class map extends Component {
 
 
 const mapStateToProps = (state) => {
-    console.log(state.TopicListReducer);
     return {
         topicList: state.TopicListReducer,
         moveTopos: state.MsgSendReducer,
+        anjianID: state.PelouedCaseID,
     };
 };
 
@@ -1534,17 +1658,17 @@ const mapDispatchToProps = (dispatch) => {
                 },
             });
         },
-        sendUserId: () => {
+        sendUserId: (id) => {
             dispatch({
                 type: 'SEND_USER_ID',
                 payload: {
-                    userid: 'usrBWUpuxokvBU',
+                    userid: id,
                 },
             });
         },
-        loginRtc: () => {
-            dispatch(login(123321));
-        },
+        // loginRtc: () => {
+        //     dispatch(login(123321));
+        // },
         // sendPlaylist: () => {
         //     dispath({
         //         type:'SEND_PLAY_LIST',
